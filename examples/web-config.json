@@ -1,0 +1,50 @@
+{
+  "assessment_type": "web",
+  "target": "https://example.com",
+  "authentication": {
+    "type": "cookie",
+    "credentials": {
+      "session_cookie": "PHPSESSID=abc123def456",
+      "csrf_token": "csrf_token_value"
+    },
+    "login_url": "https://example.com/login",
+    "logout_url": "https://example.com/logout"
+  },
+  "scanning": {
+    "scan_depth": "deep",
+    "max_pages": 1000,
+    "request_delay": 1,
+    "user_agent": "VAPT-Tool/1.0 Security Scanner",
+    "follow_redirects": true,
+    "check_ssl": true
+  },
+  "scope": {
+    "included_paths": ["/", "/admin", "/api"],
+    "excluded_paths": ["/logout", "/reset-password"],
+    "excluded_extensions": [".jpg", ".png", ".gif", ".css", ".js"],
+    "test_forms": true,
+    "test_parameters": true
+  },
+  "vulnerability_checks": {
+    "owasp_top_10": true,
+    "sql_injection": true,
+    "xss": true,
+    "csrf": true,
+    "directory_traversal": true,
+    "file_upload": true,
+    "authentication_bypass": true,
+    "session_management": true
+  },
+  "exploitation": {
+    "enable_metasploit": true,
+    "auto_exploit": false,
+    "sqlmap_integration": true,
+    "custom_payloads": []
+  },
+  "reporting": {
+    "formats": ["html", "json"],
+    "include_screenshots": true,
+    "proof_of_concept": true,
+    "business_impact": true
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "assessment_type": "network",
+  "target": "192.168.1.0/24",
+  "scanning": {
+    "port_range": "1-65535",
+    "timing": "normal",
+    "scan_type": "comprehensive",
+    "nmap_scripts": ["vuln", "safe", "discovery"],
+    "excluded_hosts": ["192.168.1.1", "192.168.1.254"],
+    "max_concurrent_scans": 10
+  },
+  "exploitation": {
+    "enable_metasploit": true,
+    "auto_exploit": false,
+    "exploit_confidence_threshold": "high",
+    "max_exploit_attempts": 3,
+    "listener_host": "192.168.1.100",
+    "listener_port": 4444
+  },
+  "reporting": {
+    "formats": ["html", "json", "txt"],
+    "include_evidence": true,
+    "executive_summary": true,
+    "remediation_priority": "critical_first"
+  },
+  "compliance": {
+    "frameworks": ["OWASP", "NIST", "ISO27001"],
+    "generate_compliance_report": true
+  }
+}

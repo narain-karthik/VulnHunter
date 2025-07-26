@@ -1,0 +1,439 @@
+{
+  "critical_tools": {
+    "nmap": {
+      "description": "Network discovery and security auditing",
+      "check_command": ["nmap", "--version"],
+      "install_hint": "sudo apt-get install nmap",
+      "category": "network",
+      "priority": "critical"
+    },
+    "curl": {
+      "description": "HTTP client for API testing",
+      "check_command": ["curl", "--version"],
+      "install_hint": "sudo apt-get install curl",
+      "category": "web",
+      "priority": "critical"
+    },
+    "python3": {
+      "description": "Python interpreter",
+      "check_command": ["python3", "--version"],
+      "install_hint": "sudo apt-get install python3",
+      "category": "general",
+      "priority": "critical"
+    }
+  },
+  "network_tools": {
+    "nmap": {
+      "description": "Network discovery and port scanning",
+      "check_command": ["nmap", "--version"],
+      "install_hint": "sudo apt-get install nmap",
+      "category": "network",
+      "priority": "high",
+      "features": ["port_scanning", "service_detection", "os_fingerprinting", "vulnerability_scanning"]
+    },
+    "masscan": {
+      "description": "High-speed port scanner",
+      "check_command": ["masscan", "--version"],
+      "install_hint": "sudo apt-get install masscan",
+      "category": "network",
+      "priority": "medium",
+      "features": ["fast_port_scanning", "large_scale_scanning"]
+    },
+    "netdiscover": {
+      "description": "Network host discovery",
+      "check_command": ["netdiscover", "-h"],
+      "install_hint": "sudo apt-get install netdiscover",
+      "category": "network",
+      "priority": "medium",
+      "features": ["host_discovery", "arp_scanning"]
+    },
+    "arp-scan": {
+      "description": "ARP-based host discovery",
+      "check_command": ["arp-scan", "--version"],
+      "install_hint": "sudo apt-get install arp-scan",
+      "category": "network",
+      "priority": "medium",
+      "features": ["arp_scanning", "host_discovery"]
+    },
+    "fping": {
+      "description": "Fast ping sweep utility",
+      "check_command": ["fping", "-v"],
+      "install_hint": "sudo apt-get install fping",
+      "category": "network",
+      "priority": "low",
+      "features": ["ping_sweep", "host_discovery"]
+    },
+    "hping3": {
+      "description": "Custom packet crafting tool",
+      "check_command": ["hping3", "--version"],
+      "install_hint": "sudo apt-get install hping3",
+      "category": "network",
+      "priority": "medium",
+      "features": ["packet_crafting", "port_scanning", "firewall_testing"]
+    },
+    "traceroute": {
+      "description": "Network path discovery",
+      "check_command": ["traceroute", "--version"],
+      "install_hint": "sudo apt-get install traceroute",
+      "category": "network",
+      "priority": "low",
+      "features": ["path_discovery", "network_topology"]
+    },
+    "enum4linux": {
+      "description": "SMB enumeration tool",
+      "check_command": ["enum4linux", "-h"],
+      "install_hint": "sudo apt-get install enum4linux",
+      "category": "network",
+      "priority": "medium",
+      "features": ["smb_enumeration", "windows_enumeration"]
+    },
+    "snmpwalk": {
+      "description": "SNMP enumeration tool",
+      "check_command": ["snmpwalk", "--version"],
+      "install_hint": "sudo apt-get install snmp",
+      "category": "network",
+      "priority": "medium",
+      "features": ["snmp_enumeration", "network_management"]
+    }
+  },
+  "web_tools": {
+    "nikto": {
+      "description": "Web server vulnerability scanner",
+      "check_command": ["nikto", "-Version"],
+      "install_hint": "sudo apt-get install nikto",
+      "category": "web",
+      "priority": "high",
+      "features": ["web_vulnerability_scanning", "server_enumeration"]
+    },
+    "dirb": {
+      "description": "Web directory brute forcer",
+      "check_command": ["dirb"],
+      "install_hint": "sudo apt-get install dirb",
+      "category": "web",
+      "priority": "high",
+      "features": ["directory_bruteforce", "content_discovery"]
+    },
+    "gobuster": {
+      "description": "Fast directory/file enumeration tool",
+      "check_command": ["gobuster", "version"],
+      "install_hint": "sudo apt-get install gobuster",
+      "category": "web",
+      "priority": "high",
+      "features": ["directory_enumeration", "dns_enumeration", "vhost_enumeration"]
+    },
+    "sqlmap": {
+      "description": "SQL injection testing tool",
+      "check_command": ["sqlmap", "--version"],
+      "install_hint": "sudo apt-get install sqlmap",
+      "category": "web",
+      "priority": "high",
+      "features": ["sql_injection", "database_exploitation"]
+    },
+    "wfuzz": {
+      "description": "Web application fuzzer",
+      "check_command": ["wfuzz", "--version"],
+      "install_hint": "pip3 install wfuzz",
+      "category": "web",
+      "priority": "medium",
+      "features": ["web_fuzzing", "parameter_bruteforce"]
+    },
+    "ffuf": {
+      "description": "Fast web fuzzer",
+      "check_command": ["ffuf", "-V"],
+      "install_hint": "go install github.com/ffuf/ffuf@latest",
+      "category": "web",
+      "priority": "medium",
+      "features": ["fast_fuzzing", "directory_enumeration"]
+    },
+    "whatweb": {
+      "description": "Web technology fingerprinting",
+      "check_command": ["whatweb", "--version"],
+      "install_hint": "sudo apt-get install whatweb",
+      "category": "web",
+      "priority": "medium",
+      "features": ["technology_detection", "cms_identification"]
+    },
+    "wafw00f": {
+      "description": "Web application firewall detection",
+      "check_command": ["wafw00f", "--version"],
+      "install_hint": "pip3 install wafw00f",
+      "category": "web",
+      "priority": "medium",
+      "features": ["waf_detection", "firewall_identification"]
+    },
+    "commix": {
+      "description": "Command injection exploitation tool",
+      "check_command": ["commix", "--version"],
+      "install_hint": "git clone https://github.com/commixproject/commix.git",
+      "category": "web",
+      "priority": "medium",
+      "features": ["command_injection", "exploitation"]
+    }
+  },
+  "ssl_tools": {
+    "sslscan": {
+      "description": "SSL/TLS configuration scanner",
+      "check_command": ["sslscan", "--version"],
+      "install_hint": "sudo apt-get install sslscan",
+      "category": "ssl",
+      "priority": "high",
+      "features": ["ssl_scanning", "cipher_analysis", "certificate_analysis"]
+    },
+    "testssl.sh": {
+      "description": "SSL/TLS security testing",
+      "check_command": ["testssl.sh", "--version"],
+      "install_hint": "git clone https://github.com/drwetter/testssl.sh.git",
+      "category": "ssl",
+      "priority": "high",
+      "features": ["comprehensive_ssl_testing", "vulnerability_detection"]
+    },
+    "openssl": {
+      "description": "SSL/TLS toolkit",
+      "check_command": ["openssl", "version"],
+      "install_hint": "sudo apt-get install openssl",
+      "category": "ssl",
+      "priority": "critical",
+      "features": ["certificate_operations", "ssl_client", "encryption"]
+    }
+  },
+  "api_tools": {
+    "curl": {
+      "description": "HTTP client for API testing",
+      "check_command": ["curl", "--version"],
+      "install_hint": "sudo apt-get install curl",
+      "category": "api",
+      "priority": "critical",
+      "features": ["http_client", "api_testing", "header_manipulation"]
+    },
+    "jq": {
+      "description": "JSON processor",
+      "check_command": ["jq", "--version"],
+      "install_hint": "sudo apt-get install jq",
+      "category": "api",
+      "priority": "high",
+      "features": ["json_parsing", "data_extraction"]
+    },
+    "jwt-tool": {
+      "description": "JWT security testing tool",
+      "check_command": ["python3", "-c", "import jwt_tool"],
+      "install_hint": "pip3 install pyjwt",
+      "category": "api",
+      "priority": "medium",
+      "features": ["jwt_testing", "token_manipulation"]
+    }
+  },
+  "cloud_tools": {
+    "aws": {
+      "description": "AWS CLI",
+      "check_command": ["aws", "--version"],
+      "install_hint": "pip3 install awscli",
+      "category": "cloud",
+      "priority": "high",
+      "features": ["aws_management", "cloud_enumeration"]
+    },
+    "azure": {
+      "description": "Azure CLI",
+      "check_command": ["az", "--version"],
+      "install_hint": "curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash",
+      "category": "cloud",
+      "priority": "medium",
+      "features": ["azure_management", "cloud_enumeration"]
+    },
+    "gcloud": {
+      "description": "Google Cloud CLI",
+      "check_command": ["gcloud", "version"],
+      "install_hint": "Install Google Cloud SDK from https://cloud.google.com/sdk/",
+      "category": "cloud",
+      "priority": "medium",
+      "features": ["gcp_management", "cloud_enumeration"]
+    },
+    "scout-suite": {
+      "description": "Multi-cloud security auditing tool",
+      "check_command": ["scout", "--version"],
+      "install_hint": "pip3 install scoutsuite",
+      "category": "cloud",
+      "priority": "high",
+      "features": ["cloud_security_assessment", "multi_cloud_support"]
+    },
+    "prowler": {
+      "description": "AWS security assessment tool",
+      "check_command": ["prowler", "-v"],
+      "install_hint": "pip3 install prowler-cloud",
+      "category": "cloud",
+      "priority": "high",
+      "features": ["aws_security_assessment", "compliance_checking"]
+    }
+  },
+  "vulnerability_scanners": {
+    "nuclei": {
+      "description": "Fast vulnerability scanner",
+      "check_command": ["nuclei", "-version"],
+      "install_hint": "go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest",
+      "category": "vulnerability",
+      "priority": "high",
+      "features": ["template_based_scanning", "fast_scanning", "community_templates"]
+    },
+    "nessus": {
+      "description": "Professional vulnerability scanner",
+      "check_command": ["nessuscli", "--version"],
+      "install_hint": "Download from https://www.tenable.com/products/nessus",
+      "category": "vulnerability",
+      "priority": "high",
+      "features": ["comprehensive_scanning", "compliance_scanning"]
+    },
+    "openvas": {
+      "description": "Open source vulnerability scanner",
+      "check_command": ["openvas", "--version"],
+      "install_hint": "sudo apt-get install openvas",
+      "category": "vulnerability",
+      "priority": "medium",
+      "features": ["open_source_scanning", "web_interface"]
+    }
+  },
+  "general_tools": {
+    "git": {
+      "description": "Version control system",
+      "check_command": ["git", "--version"],
+      "install_hint": "sudo apt-get install git",
+      "category": "general",
+      "priority": "high",
+      "features": ["version_control", "code_repository"]
+    },
+    "wget": {
+      "description": "Web file retrieval",
+      "check_command": ["wget", "--version"],
+      "install_hint": "sudo apt-get install wget",
+      "category": "general",
+      "priority": "medium",
+      "features": ["file_download", "web_retrieval"]
+    },
+    "whois": {
+      "description": "Domain registration lookup",
+      "check_command": ["whois", "--version"],
+      "install_hint": "sudo apt-get install whois",
+      "category": "general",
+      "priority": "medium",
+      "features": ["domain_lookup", "registration_info"]
+    },
+    "dig": {
+      "description": "DNS lookup utility",
+      "check_command": ["dig", "-v"],
+      "install_hint": "sudo apt-get install dnsutils",
+      "category": "general",
+      "priority": "high",
+      "features": ["dns_lookup", "domain_enumeration"]
+    },
+    "nc": {
+      "description": "Netcat networking utility",
+      "check_command": ["nc", "-h"],
+      "install_hint": "sudo apt-get install netcat",
+      "category": "general",
+      "priority": "medium",
+      "features": ["network_debugging", "port_scanning", "banner_grabbing"]
+    }
+  },
+  "specialized_tools": {
+    "hydra": {
+      "description": "Password brute force tool",
+      "check_command": ["hydra", "-h"],
+      "install_hint": "sudo apt-get install hydra",
+      "category": "bruteforce",
+      "priority": "medium",
+      "features": ["password_bruteforce", "multi_protocol_support"]
+    },
+    "john": {
+      "description": "Password cracking tool",
+      "check_command": ["john", "--version"],
+      "install_hint": "sudo apt-get install john",
+      "category": "password",
+      "priority": "medium",
+      "features": ["password_cracking", "hash_cracking"]
+    },
+    "hashcat": {
+      "description": "Advanced password recovery",
+      "check_command": ["hashcat", "--version"],
+      "install_hint": "sudo apt-get install hashcat",
+      "category": "password",
+      "priority": "medium",
+      "features": ["gpu_acceleration", "hash_cracking"]
+    },
+    "metasploit": {
+      "description": "Penetration testing framework",
+      "check_command": ["msfconsole", "-v"],
+      "install_hint": "curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall",
+      "category": "exploitation",
+      "priority": "high",
+      "features": ["exploitation_framework", "payload_generation", "post_exploitation"],
+      "github_url": "https://github.com/rapid7/metasploit-framework.git"
+    },
+    "msfvenom": {
+      "description": "Metasploit payload generator",
+      "check_command": ["msfvenom", "--help"],
+      "install_hint": "Installed with Metasploit Framework",
+      "category": "exploitation", 
+      "priority": "high",
+      "features": ["payload_generation", "shellcode_generation"]
+    }
+  },
+  "installation_scripts": {
+    "debian_ubuntu": {
+      "name": "Debian/Ubuntu Installation Script",
+      "commands": [
+        "sudo apt-get update",
+        "sudo apt-get install -y nmap masscan netdiscover arp-scan fping hping3 traceroute",
+        "sudo apt-get install -y nikto dirb gobuster sqlmap whatweb",
+        "sudo apt-get install -y sslscan openssl",
+        "sudo apt-get install -y curl jq git wget whois dnsutils netcat",
+        "sudo apt-get install -y hydra john hashcat",
+        "pip3 install wfuzz wafw00f awscli scoutsuite prowler-cloud",
+        "go install github.com/ffuf/ffuf@latest",
+        "go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest"
+      ]
+    },
+    "centos_rhel": {
+      "name": "CentOS/RHEL Installation Script",
+      "commands": [
+        "sudo yum update -y",
+        "sudo yum install -y epel-release",
+        "sudo yum install -y nmap masscan fping hping3 traceroute",
+        "sudo yum install -y nikto dirb whatweb",
+        "sudo yum install -y openssl curl wget bind-utils nc",
+        "pip3 install wfuzz wafw00f awscli sqlmap gobuster",
+        "go install github.com/ffuf/ffuf@latest",
+        "go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest"
+      ]
+    },
+    "kali_linux": {
+      "name": "Kali Linux (Most tools pre-installed)",
+      "commands": [
+        "sudo apt-get update",
+        "sudo apt-get upgrade -y",
+        "pip3 install scoutsuite prowler-cloud",
+        "go install github.com/ffuf/ffuf@latest",
+        "go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest"
+      ]
+    }
+  },
+  "tool_alternatives": {
+    "nmap": ["masscan", "unicornscan", "zmap"],
+    "nikto": ["dirb + manual testing", "gobuster + curl", "nuclei"],
+    "sqlmap": ["manual SQL injection testing", "burp suite professional"],
+    "gobuster": ["dirb", "ffuf", "dirsearch"],
+    "sslscan": ["testssl.sh", "openssl s_client", "nmap ssl scripts"],
+    "masscan": ["nmap with timing options", "zmap"],
+    "enum4linux": ["smbclient + rpcclient", "manual SMB enumeration"]
+  },
+  "tool_compatibility": {
+    "minimum_versions": {
+      "nmap": "7.0",
+      "python3": "3.6",
+      "curl": "7.0",
+      "openssl": "1.1"
+    },
+    "os_compatibility": {
+      "linux": ["all"],
+      "macos": ["nmap", "curl", "openssl", "git", "wget"],
+      "windows": ["nmap", "curl", "git"]
+    }
+  }
+}
