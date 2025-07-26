@@ -432,7 +432,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 *VulnHunter - Professional Security Testing Made Simple*
-
-**Developed for cybersecurity professionals, by cybersecurity professionals.**
-
-**Repository**: https://github.com/narain-karthik/VulnHunter.git
