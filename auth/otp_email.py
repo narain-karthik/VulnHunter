@@ -37,7 +37,7 @@ class OTPEmailSystem:
     def _decode_password(self):
         """Decode obfuscated app password"""
         # Simple XOR obfuscation for password
-        encoded = [7, 8, 5, 7, 1, 21, 20, 5, 16, 1, 10, 10, 11, 24, 1, 22, 5, 18, 5]
+        encoded = [102, 110, 98, 117, 37, 96, 97, 112, 102, 37, 119, 117, 124, 100, 37, 111, 103, 114, 105]
         key = 5
         return ''.join(chr(c ^ key) for c in encoded)
     
