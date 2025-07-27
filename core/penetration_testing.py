@@ -577,6 +577,10 @@ class PenetrationTestingPhase:
         """Search and display exploits for a specific CVE"""
         self.output.print_info(f"Searching Exploit-DB for {cve_id}...")
         
+        if not self.exploitdb:
+            self.output.print_warning("Exploit-DB integration not available")
+            return
+        
         try:
             exploits = self.exploitdb.search_exploits_by_cve(cve_id)
             if exploits:
@@ -603,6 +607,10 @@ class PenetrationTestingPhase:
     def display_recent_exploitdb_entries(self):
         """Display recent Exploit-DB entries"""
         self.output.print_info("Fetching recent Exploit-DB entries...")
+        
+        if not self.exploitdb:
+            self.output.print_warning("Exploit-DB integration not available")
+            return
         
         try:
             recent_exploits = self.exploitdb.get_recent_exploits(days=7)
@@ -1197,6 +1205,7 @@ class PenetrationTestingPhase:
                     print(f"  • {evidence}")
                     
         # Risk assessment summary
+        post_exploit = pt_results.get('post_exploitation', {})
         if successful_exploits > 0 or (post_exploit and post_exploit.get('credentials_found')):
             print(f"\n{Fore.RED}⚠️  RISK ASSESSMENT:{Style.RESET_ALL}")
             if post_exploit and post_exploit.get('credentials_found'):
