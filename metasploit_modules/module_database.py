@@ -337,6 +337,12 @@ class MetasploitModuleDatabase:
         # Remove duplicates from recent CVEs
         stats['recent_cves'] = list(set(stats['recent_cves']))
         
+        # Add simplified category access for compatibility
+        stats['exploits'] = stats['categories'].get('exploits', 0)
+        stats['auxiliary'] = stats['categories'].get('auxiliary', 0)
+        stats['payloads'] = stats['categories'].get('payloads', 0)
+        stats['post'] = stats['categories'].get('post', 0)
+        
         return stats
         
     def recommend_modules_for_target(self, target_info: Dict) -> List[Dict]:
